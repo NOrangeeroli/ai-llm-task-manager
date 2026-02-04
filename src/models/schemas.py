@@ -41,3 +41,21 @@ class TaskQueryParams(BaseModel):
     search: Optional[str] = None
     limit: int = 50
     offset: int = 0
+
+
+class NaturalLanguageTaskRequest(BaseModel):
+    text: str = Field(..., min_length=3)
+
+
+class TagSuggestionRequest(BaseModel):
+    title: str
+    description: Optional[str] = None
+
+
+class TaskSummaryRequest(BaseModel):
+    task_ids: Optional[list[int]] = None
+
+
+class TaskSearchRequest(BaseModel):
+    query: str
+    limit: int = 10
